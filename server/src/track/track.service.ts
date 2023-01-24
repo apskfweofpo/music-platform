@@ -27,7 +27,7 @@ export class TrackService {
         return tracks
     }
 
-    async getOne(id: ObjectId): Promise<Track> {   //прикол
+    async getOne(id: ObjectId): Promise<Track> {
         const track = await this.trackModel.findById(id).populate('comments')
         return track
     }
@@ -40,7 +40,7 @@ export class TrackService {
     async addComment(dto: CreateCommentDto) : Promise<Comment>{
         const track = await this.trackModel.findById(dto.trackId)
         const comment = await this.commentModel.create({...dto})
-        track.comments.push(comment.id) //?
+        track.comments.push(comment.id)
         await track.save()
         return comment;
     }
