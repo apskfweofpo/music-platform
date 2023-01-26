@@ -23,7 +23,7 @@ export class TrackService {
     }
 
     async getAll(): Promise<Track[]> {
-        const tracks = await this.trackModel.find().populate('comments')
+        const tracks = await this.trackModel.find()
         return tracks
     }
 
