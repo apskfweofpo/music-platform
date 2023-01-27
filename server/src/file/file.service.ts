@@ -16,8 +16,8 @@ export class FileService{
 
         try {
             const fileExtension = file.orginalname.split('.').pop()
-            const fileName = uuid.v4() + fileExtension
-            const filePath = path.resolve(__dirname, '..', 'static', fileName)
+            const fileName = uuid.v4() + '.' + fileExtension
+            const filePath = path.resolve(__dirname, '..', 'static', fileName, type)
             if(!fs.existsSync(filePath)){
                 fs.mkdirSync(filePath, {recursive:true})
             }
