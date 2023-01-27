@@ -38,7 +38,7 @@ export class TrackController {
         return this.trackService.getAll(count, offset)
     }
 
-    @Get()
+    @Get('/search')
     search(@Query('count') query: string,
            ) {
         return this.trackService.search(query)
